@@ -7,7 +7,7 @@ const hbs = exphbs.create({
     partialsDir: ['views/partials']
 })
 
-app.engine('handlebars', hbs.engine());
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 app.get('/dashboard', (req, res) => {
@@ -28,7 +28,7 @@ app.get('/post', (req, res) => {
 })
 
 app.get('/blog', (req, res) => {
-    const blog = [
+    const posts = [
         {
             title: "Aprender Node.js",
             category: "JavaScript",
@@ -48,7 +48,7 @@ app.get('/blog', (req, res) => {
             comments: 4
         },
     ]
-    res.render('blog', {blog})
+    res.render('blog', { posts })
 })
 
 
